@@ -6,6 +6,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Scanner user = new Scanner(new File("MarchData"));
+        Scanner person = new Scanner(System.in);
         ArrayList<Team> madness = new ArrayList();
         int count = 1;
         String storage = "";
@@ -128,10 +129,14 @@ public class Main {
                 count++;
             }
         }
-        System.out.println(madness.get(0).id + madness.get(0).score);
-        System.out.println(madness.get(1).id + madness.get(1).score);
-        System.out.println(madness.get(2).id + madness.get(2).score);
-        System.out.println(madness.get(3).id + madness.get(3).score);
+        while (true)
+        {
+            System.out.println("Enter team name");
+            String w = " " + person.nextLine();
+            for (int a = 0; a < madness.size(); a++)
+                if (madness.get(a).id.equalsIgnoreCase(w))
+                    System.out.println(madness.get(a).score);
+        }
     }
 }
 
