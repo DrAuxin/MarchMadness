@@ -9,6 +9,8 @@ public class Main {
         Scanner person = new Scanner(System.in);
         ArrayList<Team> madness = new ArrayList();
         int count = 1;
+        int score1 = 0;
+        int score2 = 0;
         String storage = "";
         boolean add = true;
         String year = "0";
@@ -129,13 +131,23 @@ public class Main {
                 count++;
             }
         }
-        while (true)
-        {
-            System.out.println("Enter team name");
+        while (true) {
+            score1 = 0;
+            score2 = 0;
+            System.out.println("Enter team name one");
             String w = " " + person.nextLine();
             for (int a = 0; a < madness.size(); a++)
                 if (madness.get(a).id.equalsIgnoreCase(w))
-                    System.out.println(madness.get(a).score);
+                    score1 = madness.get(a).score;
+            System.out.println("Enter team name one");
+            String l = " " + person.nextLine();
+            for (int a = 0; a < madness.size(); a++)
+                if (madness.get(a).id.equalsIgnoreCase(l))
+                    score2 = madness.get(a).score;
+            if (score1>score2)
+                System.out.println(w + " wins");
+            else if (score1 < score2)
+                System.out.println(l + " wins");
         }
     }
 }
