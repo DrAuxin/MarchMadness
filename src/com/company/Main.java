@@ -145,16 +145,12 @@ public class Main {
             for (int a = 0; a < madness.size(); a++)
                 if (madness.get(a).id.equalsIgnoreCase(" " + l))
                     score2 = madness.get(a).score;
-            if (score1 > score2)
-                System.out.println(w + " wins");
-            else if (score1 < score2)
-                System.out.println(l + " wins");
-            else {
             Scanner finder = new Scanner(new File("Schedule"));
             while (finder.hasNextLine()) {
                 if (finder.findInLine(w) != null) {
                     finder.findInLine("0.");
-                    score1 = Integer.parseInt(finder.next());
+                    score1 = (Integer.parseInt(finder.next()))/10 + score1;
+                    break;
                 }
                 finder.nextLine();
             }
@@ -162,7 +158,8 @@ public class Main {
             while (finder2.hasNextLine()) {
                 if (finder2.findInLine(l) != null) {
                     finder2.findInLine("0.");
-                    score2 = Integer.parseInt(finder2.next());
+                    score2 = (Integer.parseInt(finder2.next()))/10 + score2;
+                    break;
                 }
                 finder2.nextLine();
             }
@@ -170,7 +167,6 @@ public class Main {
                 System.out.println(w + " wins");
             else if (score1 < score2)
                 System.out.println(l + " wins");
-            }
         }
     }
 }
