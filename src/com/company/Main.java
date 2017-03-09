@@ -150,30 +150,29 @@ public class Main {
             else if (score1 < score2)
                 System.out.println(l + " wins");
             else {
-                Scanner finder = new Scanner(new File("Schedule"));
-                while (finder.hasNextLine()) {
-                    if (finder.findInLine(w) != null) {
-                        finder.findInLine("0.");
-                        score1 = finder.nextDouble();
-
-                    }
-                    finder.hasNextLine();
+            Scanner finder = new Scanner(new File("Schedule"));
+            while (finder.hasNextLine()) {
+                if (finder.findInLine(w) != null) {
+                    finder.findInLine("0.");
+                    score1 = Integer.parseInt(finder.next());
                 }
-                Scanner finder2 = new Scanner(new File("Schedule"));
-                while (finder.hasNextLine()) {
-                    if (finder2.findInLine(l) != null) {
-                        finder2.findInLine("0.");
-                        score2 = finder.nextDouble();
-
-                    }
-                    finder2.hasNextLine();
+                finder.nextLine();
+            }
+            Scanner finder2 = new Scanner(new File("Schedule"));
+            while (finder2.hasNextLine()) {
+                if (finder2.findInLine(l) != null) {
+                    finder2.findInLine("0.");
+                    score2 = Integer.parseInt(finder2.next());
                 }
-                if (score1 > score2)
-                    System.out.println(w + " wins");
-                else if (score1 < score2)
-                    System.out.println(l + " wins");
+                finder2.nextLine();
+            }
+            if (score1 > score2)
+                System.out.println(w + " wins");
+            else if (score1 < score2)
+                System.out.println(l + " wins");
             }
         }
     }
 }
+
 
