@@ -148,8 +148,9 @@ public class Main {
             Scanner finder = new Scanner(new File("Schedule"));
             while (finder.hasNextLine()) {
                 if (finder.findInLine(w) != null) {
-                    finder.findInLine("0.");
-                    score1 = (Integer.parseInt(finder.next()))/10 + score1;
+                    finder.findInLine("-");
+                    finder.next();
+                    score1 = (Double.parseDouble(finder.next()))*1000 + score1;
                     break;
                 }
                 finder.nextLine();
@@ -157,8 +158,9 @@ public class Main {
             Scanner finder2 = new Scanner(new File("Schedule"));
             while (finder2.hasNextLine()) {
                 if (finder2.findInLine(l) != null) {
-                    finder2.findInLine("0.");
-                    score2 = (Integer.parseInt(finder2.next()))/10 + score2;
+                    finder2.findInLine("-");
+                    finder2.next();
+                    score2 = (Double.parseDouble(finder2.next()))*1000 + score2;
                     break;
                 }
                 finder2.nextLine();
